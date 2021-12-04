@@ -2,11 +2,13 @@ from flask import Flask, request, render_template
 from flask_cors import CORS, cross_origin
 from topic_sentiment import Topic_sentiment
 import json
+import os
 
 app = Flask(__name__)
 
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+port = int(os.environ.get('PORT', 5000))
 model = Topic_sentiment()
 
 @app.route("/")
@@ -23,4 +25,4 @@ def analyze_topic():
     return json.dumps(result)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=False)
+    app.run(host="0.0.0.0", port=port, debug=False)

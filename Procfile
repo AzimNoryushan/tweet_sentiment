@@ -1,1 +1,1 @@
-worker: python main.py --bind 0.0.0.0:${PORT}
+web: python main.py --bind "0.0.0.0:$PORT" -w 3
