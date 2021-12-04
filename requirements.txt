@@ -5,4 +5,3 @@ youtokentome
 tensorflow==1.15.4
 malaya
 twint
-matplotlib
