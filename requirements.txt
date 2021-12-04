@@ -1,6 +1,5 @@
 flask
 flask_cors
-jsonlib
 youtokentome
 tensorflow==1.15.4
 malaya
