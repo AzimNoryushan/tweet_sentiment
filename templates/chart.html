@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.1/chart.min.js" 
+        integrity="sha512-O2fWHvFel3xjQSi9FyzKXWLTvnom+lOYR/AUEThL/fbP4hv1Lo5LCFCGuTXBRyKC4K4DJldg5kxptkgXAzUpvA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script>
+            div#content {
+                display: none;
+                }
+
+            div#loading {
+                top: 200 px;
+                margin: auto;
+                position: absolute;
+                z-index: 1000;
+                width: 160px;
+                height: 24px;
+                background: url(loading-buffering.gif) no-repeat;
+                cursor: wait;
+                }
+        </script>
+        <script type="text/javascript">// <![CDATA[
+            function preloader(){
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            }//preloader
+            window.onload = preloader;
+        // ]]></script>
+        
+        <title>Apa twitter kata?</title>
+    </head>
+    <body>
+        <div id="loading"></div>
+        <div id="form-group">
+            <form method="POST">
+                <input name="topic">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div id="content">
+            <div class="chart-container" style="position: relative; top: 40px; left: 28%; height:20vh; width:40vw" >
+                <canvas id="sentimentChart"></canvas>
+            </div>
+            <script>
+            let ctx = document.getElementById('sentimentChart').getContext('2d');
+            let labels = JSON.parse({{ labels | tojson }});
+            let data = JSON.parse({{ data | tojson }});
+            let sentimentChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '# of Tweets',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)'
+                        ],
+                        hoverOffset: 4
+                    }]
+                }
+            });
+            </script>
+        </div>
+    </body>
+</html>
