@@ -10,7 +10,4 @@ class Sentiment_detection:
         sentiment = model.predict(message)
         message = ' '.join(message)
 
-        # with open("DISCORD_CONVERSATION.txt", "a+") as file_object:
-        #     file_object.write(message + "\t" + str(emotion) + "\n")
-
         return sentiment
