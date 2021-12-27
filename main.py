@@ -6,11 +6,9 @@ from dotenv import load_dotenv
 import tweepy
 import json
 import os
-import traceback
+#import traceback
 
 import matplotlib.pyplot as plt
-import traceback
-from sentiment_detection import Sentiment_detection
 from datetime import date
 import malaya
 

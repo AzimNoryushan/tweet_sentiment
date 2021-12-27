@@ -5,3 +5,4 @@ twint
 fastapi
 tweepy
 uvicorn[standard]
+matplotlib
