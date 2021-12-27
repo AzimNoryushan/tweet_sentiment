@@ -4,4 +4,4 @@ malaya
 twint
 fastapi
 tweepy
-"uvicorn[standard]"
+uvicorn[standard]
