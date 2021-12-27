@@ -1,14 +1,12 @@
 # from flask import Flask, request, render_template
 # from flask_cors import CORS, cross_origin
 from fastapi import FastAPI, Request
-from topic_sentiment import Topic_sentiment
 from dotenv import load_dotenv
 import tweepy
-import json
 import os
 #import traceback
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from datetime import date
 import malaya
 
@@ -68,7 +66,7 @@ def getSentiment(message):
     except:
         traceback.print_exc
 
-def generate_chart(positive_results, negative_results, topic):
+# def generate_chart(positive_results, negative_results, topic):
     try:
         today = date.today()
         fig = plt.figure()

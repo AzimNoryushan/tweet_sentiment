@@ -1,8 +1,6 @@
 youtokentome
 tensorflow==1.15.4
 malaya
-twint
 fastapi
 tweepy
 uvicorn[standard]
-matplotlib
