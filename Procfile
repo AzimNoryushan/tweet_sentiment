@@ -1,1 +1,1 @@
-web: uvicorn main:app --reload -w 5
+web: uvicorn main:app
