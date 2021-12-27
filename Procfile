@@ -1,1 +1,1 @@
-web: gunicorn main:app -b "0.0.0.0:$PORT" -w 5
+web: uvicorn main:app --reload -w 5
