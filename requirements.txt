@@ -3,5 +3,4 @@ tensorflow==1.15.4
 malaya
 fastapi
 tweepy
-traceback
 uvicorn[standard]
