@@ -2,9 +2,10 @@
 # from flask_cors import CORS, cross_origin
 from fastapi import FastAPI, Request
 from dotenv import load_dotenv
+import uvicorn
 import tweepy
 import os
-#import traceback
+import traceback
 
 #import matplotlib.pyplot as plt
 from datetime import date
@@ -52,7 +53,7 @@ def analyze_tweet(topic):
         except Exception as e:
             traceback.print_exc
 
-    generate_chart(positive_results, negative_results, topic)
+    #generate_chart(positive_results, negative_results, topic)
 
     return { "positive": positive_results, "negative": negative_results }
 
@@ -125,5 +126,5 @@ def listToString(list):
     except:
         traceback.print_exc
 
-# if __name__ == "__main__":
-#     app.run(host="0.0.0.0", port=port, debug=False)
+if __name__ == "__main__":
+    uvicorn.run(app, port=8000, host='0.0.0.0')
